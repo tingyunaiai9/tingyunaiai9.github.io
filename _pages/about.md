@@ -2,16 +2,16 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: Undergraduate Student, School of Software, Tsinghua University
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: prof_pic_web.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>School of Software</p>
+    <p>Tsinghua University</p>
+    <p>Beijing, China</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -22,13 +22,17 @@ announcements:
   limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: true
+  enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am an undergraduate student in the [School of Software](https://www.thss.tsinghua.edu.cn/) at [Tsinghua University](https://www.tsinghua.edu.cn/), where I am fortunate to work with Prof. Feng Xu at the Institute of CG and CAD. My research interests lie in **computer graphics**, **3D generation**, **differentiable rendering**, **3D human avatars**, and **learning-based geometry representations**.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I have also been a research intern with the Metaverse AI Interdisciplinary Innovation Lab at Tsinghua University, the Intelligent Graphics Lab at HKUST, the Computational Design and Fabrication Group at MIT CSAIL, and the Siebel School of Computing and Data Science at UIUC. Across these experiences, I have worked on 3D scene generation, facial appearance capture, mesh generation, neural PDE solvers, and differentiable rendering.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I am broadly excited by methods that connect **geometry, appearance, simulation, and interaction**. I like building systems that make 3D content easier to capture, generate, edit, and use.
+
+**Research interests:** computer graphics, 3D generation, differentiable rendering, inverse rendering, human avatars, mesh generation, neural simulation.
+
+**Highlights:** National Scholarship recipient, twice; principal investigator of a Beijing Natural Science Foundation undergraduate research project; co-author on works appearing at CVPR 2026 and SIGGRAPH 2026.
