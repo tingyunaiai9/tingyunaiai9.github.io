@@ -180,16 +180,18 @@
     {% endif %}
     {% assign entrytype_text = entrytype | strip_html | strip %}
     {% if entry.venue %}
-      {% capture periodical %}<em>{{ entry.venue }}</em>{% endcapture %}
+      {% capture periodical %}<em>{{ entry.venue }}</em>{% if entry.note %} {{ entry.note }}{% endif %}{% endcapture %}
     {% else %}
       {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
     {% endif %}
     <div class="periodical">
       {{ periodical | strip }}
     </div>
-    <div class="periodical">
-      {{ entry.note | strip }}
-    </div>
+    {% unless entry.venue %}
+      <div class="periodical">
+        {{ entry.note | strip }}
+      </div>
+    {% endunless %}
 
     <!-- Links/Buttons -->
     <div class="links">
