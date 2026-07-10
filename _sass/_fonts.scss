@@ -1,0 +1,41 @@
+/*******************************************************************************
+ * Typography fonts
+ ******************************************************************************/
+
+@font-face {
+  font-family: "Linux Biolinum";
+  src: url("../fonts/LinBiolinum_R.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Linux Biolinum";
+  src: url("../fonts/LinBiolinum_RB.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Linux Biolinum";
+  src: url("../fonts/LinBiolinum_RI.otf") format("opentype");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+body {
+  font-family: "Linux Biolinum", "Segoe UI", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+  font-family: "Arial Nova", Arial, Helvetica, sans-serif;
+}
