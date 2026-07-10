@@ -33,26 +33,11 @@ ninja.data = [{
         },{id: "news-received-the-sensetime-scholarship",
           title: 'Received the SenseTime Scholarship.',
           description: "",
-          section: "News",},{id: "projects-3d-scene-generation-and-layout-understanding",
-          title: '3D Scene Generation and Layout Understanding',
-          description: "Structured data and representations for 3D indoor scene generation.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/3d-scene-generation/";
-            },},{id: "projects-echo-of-time",
+          section: "News",},{id: "projects-echo-of-time",
           title: 'Echo of Time',
           description: "A three-player cross-time cooperative puzzle game built with Unity.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/echo-of-time/";
-            },},{id: "projects-facial-appearance-capture-in-the-wild",
-          title: 'Facial Appearance Capture in the Wild',
-          description: "Inverse rendering methods for robust facial albedo and appearance capture.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/facial-appearance-capture/";
-            },},{id: "projects-flowpde",
-          title: 'FlowPDE',
-          description: "Understanding and justifying flow matching for neural PDE solving.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/flowpde/";
             },},{
         id: 'social-cv',
         title: 'CV',
