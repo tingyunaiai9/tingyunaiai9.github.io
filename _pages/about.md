@@ -27,12 +27,10 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am an undergraduate student in the [School of Software](https://www.thss.tsinghua.edu.cn/) at [Tsinghua University](https://www.tsinghua.edu.cn/), where I am fortunate to work with Prof. Feng Xu at the Institute of CG and CAD. My research interests lie in **computer graphics**, **3D generation**, **differentiable rendering**, **3D human avatars**, and **learning-based geometry representations**.
+I am a junior undergraduate student in the [School of Software](https://www.thss.tsinghua.edu.cn/) at [Tsinghua University](https://www.tsinghua.edu.cn/), pursuing a B.E. in Software Engineering.
 
-I have also been a research intern with the Metaverse AI Interdisciplinary Innovation Lab at Tsinghua University, the Intelligent Graphics Lab at HKUST, the Computational Design and Fabrication Group at MIT CSAIL, and the Siebel School of Computing and Data Science at UIUC. Across these experiences, I have worked on 3D scene generation, facial appearance capture, mesh generation, neural PDE solvers, and differentiable rendering.
+I am fortunate to be conducting research with [Prof. Feng Xu](http://xufeng.site/) at the [Institute of CG and CAD](https://www.thss.tsinghua.edu.cn/info/1032/1090.htm), [Prof. Wojciech Matusik](https://cdfg.mit.edu/wojciech) at the [Computational Design and Fabrication Group](https://cdfg.mit.edu/) and [MIT CSAIL](https://www.csail.mit.edu/), and [Prof. Shuang Zhao](https://shuangz.com/) at the [Siebel School of Computing and Data Science](https://siebelschool.illinois.edu/). Previously, I worked with [Prof. Yuwang Wang](https://scholar.google.com/citations?user=CHAajY4AAAAJ&hl=en) and [Prof. Qionghai Dai](https://www.bnrist.tsinghua.edu.cn/rcdw1/jsdw/ljznjsjccxqt.htm) at the [Metaverse AI Interdisciplinary Innovation Lab](https://media.au.tsinghua.edu.cn/info/1011/1176.htm), and with [Prof. Yuan Liu](https://liuyuan-pal.github.io/) and [Prof. Wenping Wang](https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html) at the [Intelligent Graphics Lab](https://github.com/IGL-HKUST).
 
-I am broadly excited by methods that connect **geometry, appearance, simulation, and interaction**. I like building systems that make 3D content easier to capture, generate, edit, and use.
+My research interests include 3D vision, computer graphics, and machine learning.
 
-**Research interests:** computer graphics, 3D generation, differentiable rendering, inverse rendering, human avatars, mesh generation, neural simulation.
-
-**Highlights:** National Scholarship recipient, twice; principal investigator of a Beijing Natural Science Foundation undergraduate research project; co-author on works appearing at CVPR 2026 and SIGGRAPH 2026.
+I am applying to PhD programs for Fall 2027 and welcome conversations about research fit and collaboration.
