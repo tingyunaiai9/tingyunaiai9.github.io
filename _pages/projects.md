@@ -5,7 +5,7 @@ permalink: /projects/
 description: Selected research and development projects.
 nav: true
 nav_order: 3
-display_categories: [research, projects]
+display_categories: [projects]
 horizontal: false
 ---
 

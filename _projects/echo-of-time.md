@@ -4,6 +4,7 @@ title: Echo of Time
 description: A three-player cross-time cooperative puzzle game built with Unity.
 importance: 4
 category: projects
+redirect: https://github.com/tingyunaiai9/Echo-of-Time
 ---
 
 Echo of Time is a three-player cooperative puzzle game developed with Unity and C# for a software engineering course project. The game focuses on cross-time collaboration: players coordinate actions across different temporal states to solve spatial and logical puzzles.
