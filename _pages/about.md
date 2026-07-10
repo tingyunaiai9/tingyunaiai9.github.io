@@ -33,4 +33,4 @@ I am fortunate to be conducting research with [Prof. Feng Xu](http://xufeng.site
 
 My research interests include 3D vision, computer graphics, and machine learning.
 
-I am applying to PhD programs for Fall 2027 and welcome conversations about research fit and collaboration.
+I am currently seeking a PhD position starting in 2027 Fall, and welcome conversations about research fit and collaboration!
