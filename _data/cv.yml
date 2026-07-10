@@ -41,7 +41,7 @@ cv:
         position: Remote Research Intern
         location: Cambridge, MA, USA
         start_date: 2026-01
-        end_date: 2026-06
+        end_date: Present
         summary: "Advisor: Prof. Wojciech Matusik"
         highlights:
           - "Topic: neural PDE solvers."
@@ -138,7 +138,7 @@ cv:
         keywords: [Unreal Engine, Unity, NVIDIA OptiX, Qt, Django, Git, LaTeX]
 
       - name: Languages
-        keywords: [English TOEFL 96, CET-6 612]
+        keywords: [TOEFL 5.0, CET-6 612]
 
     Academic Service:
       - bullet: "Reviewer, Pacific Graphics 2026."
