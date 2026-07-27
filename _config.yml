@@ -7,7 +7,7 @@ first_name: Tianxiao
 middle_name:
 last_name: Li
 contact_note: >
-  I am always happy to talk about computer graphics, and research opportunities.
+  I am always happy to talk about 3D vision, computer graphics, and research opportunities.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Tianxiao Li is an undergraduate researcher in software engineering at Tsinghua University, working on computer graphics, 3D generation, differentiable rendering, and neural representations.
 footer_text: >
