@@ -7,6 +7,21 @@
 .publications {
   margin-top: 2rem;
 
+  .publication-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0.5rem;
+    row-gap: 0.125rem;
+    margin-bottom: 1rem;
+    color: var(--global-text-color-light);
+    font-size: 0.875rem;
+
+    .publication-legend-separator {
+      user-select: none;
+    }
+  }
+
   h1 {
     color: var(--global-theme-color);
     font-size: 2rem;
