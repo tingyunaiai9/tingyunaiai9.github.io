@@ -43,7 +43,7 @@ ninja.data = [{
         title: 'CV',
         section: 'Socials',
         handler: () => {
-          window.open("/assets/pdf/Tianxiao_Li_CV.pdf", "_blank");
+          window.open("/assets/pdf/Tianxiao_s_CV.pdf", "_blank");
         },
       },{
         id: 'social-email',
