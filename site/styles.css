@@ -467,31 +467,10 @@ sup {
   margin: 8px 0 10px;
   letter-spacing: -0.2px;
 }
-.publication-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-}
-.venue-label {
-  color: var(--accent);
-  font-weight: 600;
-}
-.status-label {
+.publication-venue {
   color: var(--muted);
-  font-size: 10px;
-  padding: 1px 7px;
-  background: var(--surface);
-  border-radius: 4px;
-}
-.highlight-label {
-  background: var(--highlight);
-  color: var(--accent);
-  border: 1px solid var(--gold);
-  border-radius: 4px;
-  padding: 0 6px;
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 500;
 }
 .publication-authors {
   font-size: 12px;
@@ -510,20 +489,14 @@ sup {
 .publication-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 16px;
   margin-top: 14px;
 }
 .resource-link {
-  color: var(--muted);
-  border: 1px solid var(--border);
-  border-radius: 5px;
-  padding: 3px 11px;
-  font-size: 11px;
-}
-.resource-link:hover {
   color: var(--accent);
-  border-color: var(--gold);
-  text-decoration: none;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .has-media {
   display: grid;
@@ -662,50 +635,6 @@ sup {
 }
 .back-link {
   font-size: 12px;
-}
-.publication-controls {
-  margin-bottom: 28px;
-}
-.search-label {
-  display: block;
-  font-size: 12px;
-  font-weight: 500;
-  margin-bottom: 7px;
-}
-#publication-search {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--background);
-  color: var(--text);
-}
-#publication-search::placeholder {
-  color: var(--muted);
-}
-.filter-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-top: 15px;
-}
-.filter-tabs button {
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 6px 10px;
-  background: var(--background);
-  color: var(--muted);
-  font-size: 11px;
-}
-.filter-tabs button[aria-pressed="true"] {
-  background: var(--highlight);
-  color: var(--accent);
-  border-color: var(--gold);
-}
-.result-count {
-  margin-top: 12px;
-  font-size: 12px;
-  color: var(--muted);
 }
 .empty-message,
 .no-script {

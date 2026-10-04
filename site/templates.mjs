@@ -16,7 +16,7 @@ import {
 
 export const origin = "https://tingyunaiai9.github.io";
 
-export function page(profile, { title, path, content, publications = false }) {
+export function page(profile, { title, path, content }) {
   const nav = [
     ["About", "/#about"],
     ["Publications", "/publications/"],
@@ -33,7 +33,7 @@ export function page(profile, { title, path, content, publications = false }) {
 <script type="module" src="/script.js"></script></head><body>
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="top-nav glass"><div class="nav-inner"><a class="brand" href="/">${e(profile.name)}</a><nav id="site-navigation" aria-label="Main navigation"><ul class="nav-links">${nav.map(([label, href]) => `<li><a class="nav-item${path === href ? " active" : ""}" href="${href}"${path === href ? ' aria-current="page"' : ""}>${label}</a></li>`).join("")}</ul></nav><div class="nav-actions"><button class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme">${icon("moon")}${icon("sun")}</button><button class="icon-button mobile-menu-btn" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false">${icon("menu")}</button></div></div></header>
-<div class="page-shell grid-layout">${profileCard(profile)}<main class="content-column" id="main-content" tabindex="-1">${content}${publications ? '<noscript><p class="no-script">All publications are displayed below. Enable JavaScript to use search and filters.</p></noscript>' : ""}</main></div>
+<div class="page-shell grid-layout">${profileCard(profile)}<main class="content-column" id="main-content" tabindex="-1">${content}</main></div>
 <footer><div class="footer-inner"><p>© ${new Date().getUTCFullYear()} ${e(profile.name)}</p><p>Built with ${link("AcaNova-X", "https://github.com/yihangtao/AcaNova-X")} · Hosted on ${link("GitHub Pages", "https://pages.github.com/")}</p></div></footer></body></html>`;
 }
 
@@ -68,20 +68,11 @@ export function homepage({ profile, publications, news, honors }) {
 }
 
 export function publicationsPage(profile, publications) {
-  const filters = [
-    ["all", "All"],
-    ["first-author", "First / Co-first author"],
-    ["accepted", "Accepted"],
-    ["under-review", "Under review"],
-    ["preprint", "Preprint"],
-  ];
   return page(profile, {
     title: "Publications",
     path: "/publications/",
-    publications: true,
     content: `<div class="page-heading"><a class="back-link" href="/">← Back to homepage</a><h2>Publications</h2><p>Research in computer graphics, 3D vision, and physically grounded learning.</p></div>
-    <div class="publication-controls" hidden><label class="search-label" for="publication-search">Search publications</label><input id="publication-search" type="search" placeholder="Search title, author, or venue…" autocomplete="off"><div class="filter-tabs" role="group" aria-label="Filter publications">${filters.map(([id, label]) => `<button type="button" data-filter="${id}" aria-pressed="${id === "all"}">${label}</button>`).join("")}</div><p class="result-count" role="status" aria-live="polite" aria-atomic="true"></p></div>
-    ${authorLegend()}<div class="publications-list" id="all-publications">${publications.map(publicationCard).join("")}</div><p class="empty-message" id="no-results" hidden>No publications match your search. Try another term or choose All.</p>`,
+    ${authorLegend()}<div class="publications-list" id="all-publications">${publications.map(publicationCard).join("")}</div>`,
   });
 }
 

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFile } from "node:fs/promises";
 import { escapeHtml, safeHref } from "../site/html.mjs";
-import { isValidPublications, matchesPublication } from "../site/publications.mjs";
+import { isValidPublications } from "../site/publications.mjs";
 import { publicationCard } from "../site/components.mjs";
 
 const paper = {
@@ -18,27 +18,7 @@ const paper = {
   tags: [{ text: "Paper", link: "https://example.org/paper" }],
 };
 
-test("co-first-author papers appear in the first-author filter", () => {
-  assert.equal(matchesPublication(paper, "first-author", ""), true);
-  assert.equal(matchesPublication({ ...paper, isFirstAuthor: false }, "first-author", ""), false);
-});
-
-test("search combines with status filters and matches authors and venues", () => {
-  assert.equal(matchesPublication(paper, "accepted", "TIANXIAO"), true);
-  assert.equal(matchesPublication(paper, "accepted", "physics"), true);
-  assert.equal(matchesPublication(paper, "preprint", "FlowPDE"), false);
-  assert.equal(matchesPublication(paper, "all", "nonexistent"), false);
-  assert.equal(matchesPublication(paper, "all", "  flow matching  "), true);
-});
-
-test("under-review papers are separate from accepted papers and preprints", () => {
-  const reviewing = { ...paper, type: "under-review" };
-  assert.equal(matchesPublication(reviewing, "under-review"), true);
-  assert.equal(matchesPublication(reviewing, "accepted"), false);
-  assert.equal(matchesPublication(reviewing, "preprint"), false);
-});
-
-test("publication validation rejects incomplete filtering data and duplicate IDs", () => {
+test("publication validation rejects incomplete data and duplicate IDs", () => {
   assert.equal(isValidPublications([paper]), true);
   for (const field of ["id", "title", "venue", "type", "isFirstAuthor", "year", "authors"]) {
     const broken = { ...paper };

@@ -23,7 +23,7 @@ const data = Object.fromEntries(
 const { profile, publications, news, honors } = data;
 assert.ok(profile.name && profile.email && Array.isArray(profile.biography), "Profile data is incomplete");
 assert.ok(Array.isArray(publications) && Array.isArray(news) && Array.isArray(honors), "Content lists must be arrays");
-assert.ok(isValidPublications(publications), "Publication filtering data is incomplete or has duplicate IDs");
+assert.ok(isValidPublications(publications), "Publication data is incomplete or has duplicate IDs");
 for (const paper of publications) {
   assert.ok(paper.title && Array.isArray(paper.authors) && Array.isArray(paper.tags), `Invalid publication: ${paper.id}`);
   assert.ok(["accepted", "preprint", "under-review"].includes(paper.type), `Invalid status: ${paper.id}`);
@@ -66,7 +66,7 @@ for (const [alias, destination] of [
 
 await mkdir(path.join(output, "data"), { recursive: true });
 await cp(path.join(root, "data"), path.join(output, "data"), { recursive: true });
-for (const file of ["script.js", "theme.js", "publications.mjs"]) await cp(path.join(root, "site", file), path.join(output, file));
+for (const file of ["script.js", "theme.js"]) await cp(path.join(root, "site", file), path.join(output, file));
 await write(
   "assets/favicon.svg",
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#1e293b"/><text x="32" y="42" text-anchor="middle" font-family="Georgia,serif" font-size="32" fill="#d4a562">TL</text></svg>'

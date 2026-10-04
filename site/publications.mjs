@@ -1,9 +1,3 @@
-export function matchesPublication(paper, filter = "all", query = "") {
-  const matchesFilter = filter === "all" || (filter === "first-author" ? paper.isFirstAuthor : paper.type === filter);
-  const searchText = `${paper.title} ${paper.authors.map((author) => author.name).join(" ")} ${paper.venue} ${paper.year}`.toLowerCase();
-  return Boolean(matchesFilter && searchText.includes(query.trim().toLowerCase()));
-}
-
 export function isValidPublications(papers) {
   return (
     Array.isArray(papers) &&

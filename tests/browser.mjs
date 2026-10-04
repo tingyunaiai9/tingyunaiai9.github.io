@@ -80,25 +80,8 @@ try {
   await page.goto(`${origin}/publications/`, { waitUntil: "networkidle" });
   const visibleCards = page.locator(".publication-card:visible");
   assert.equal(await visibleCards.count(), publications.length);
-  for (const [filter, count] of [
-    ["first-author", publications.filter((paper) => paper.isFirstAuthor).length],
-    ["accepted", publications.filter((paper) => paper.type === "accepted").length],
-    ["under-review", publications.filter((paper) => paper.type === "under-review").length],
-    ["preprint", publications.filter((paper) => paper.type === "preprint").length],
-    ["all", publications.length],
-  ]) {
-    await page.locator(`[data-filter="${filter}"]`).click();
-    assert.equal(await visibleCards.count(), count, `${filter} filter`);
-  }
-  await page.getByRole("searchbox").fill("wildcap");
-  assert.equal(await visibleCards.count(), 1);
-  await page.getByRole("searchbox").fill("no-paper-matches-this-query");
-  await page.locator('[data-filter="first-author"]').click();
-  assert.equal(await visibleCards.count(), 0);
-  assert.equal(await page.locator("#no-results").isVisible(), true);
-  await page.getByRole("searchbox").fill("");
-  assert.equal(await visibleCards.count(), publications.filter((paper) => paper.isFirstAuthor).length);
-  await page.locator('[data-filter="all"]').click();
+  assert.equal(await page.locator(".publication-controls, [data-filter], .status-label, .highlight-label").count(), 0);
+  assert.match(await page.locator("#zhang2026quadlink").textContent(), /Under review/);
   for (const width of [320, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `Publications overflow at ${width}px`);
@@ -108,7 +91,7 @@ try {
     (await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations.map((v) => v.id),
     []
   );
-  results.push("Publication filters, combined search, empty results, mobile menu/Escape, and publication accessibility passed");
+  results.push("Static publications, plain venue text, mobile menu/Escape, and publication accessibility passed");
 
   for (const route of ["/news/", "/honors/", "/projects/", "/pages/all-publications.html", "/pages/all-news.html", "/pages/all-honors.html"]) {
     assert.equal((await page.goto(origin + route, { waitUntil: "networkidle" })).status(), 200);
@@ -135,27 +118,6 @@ try {
   await noJS.close();
   results.push("Content and navigation remain available without JavaScript");
 
-  const failedFetch = await browser.newContext();
-  await failedFetch.route("**/data/publications.json", (route) => route.fulfill({ status: 200, contentType: "application/json", body: "{}" }));
-  const fallbackPage = await failedFetch.newPage();
-  await fallbackPage.goto(`${origin}/publications/`, { waitUntil: "networkidle" });
-  assert.equal(await fallbackPage.locator(".publication-card:visible").count(), publications.length);
-  assert.match(await fallbackPage.locator(".result-count").textContent(), /unavailable/);
-  await failedFetch.close();
-  results.push("Unavailable search data preserves the full static publication list");
-  const publishedData = JSON.parse(await readFile(path.join(root, "data/publications.json"), "utf8"));
-  const missingStatus = structuredClone(publishedData);
-  delete missingStatus[0].type;
-  const incompleteRecord = await browser.newContext();
-  await incompleteRecord.route("**/data/publications.json", (route) =>
-    route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(missingStatus) })
-  );
-  const invalidRecordPage = await incompleteRecord.newPage();
-  await invalidRecordPage.goto(`${origin}/publications/`, { waitUntil: "networkidle" });
-  assert.match(await invalidRecordPage.locator(".result-count").textContent(), /unavailable/);
-  assert.equal(await invalidRecordPage.locator(".publication-card:visible").count(), publishedData.length);
-  await incompleteRecord.close();
-  results.push("Schema-invalid publication records preserve static content instead of enabling broken filters");
   const homeHTML = await readFile(path.join(root, "_site/index.html"), "utf8");
   for (const scenario of ["early-static-error", "broken-demo", "all-media-missing"]) {
     const fixture = {

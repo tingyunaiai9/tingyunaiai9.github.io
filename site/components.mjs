@@ -37,13 +37,13 @@ export function publicationCard(paper) {
   const media = thumbnail
     ? `<figure class="publication-media"><img src="${e(thumbnail)}"${safeHref(paper.demo) ? ` data-demo="${e(paper.demo)}"` : ""} alt="Preview of ${e(paper.title)}" loading="lazy" width="300" height="170"></figure>`
     : "";
-  const labels = { accepted: "Accepted", preprint: "Preprint", "under-review": "Under review" };
   const resources = paper.tags
     .filter((tag) => safeHref(tag.link))
     .map((tag) => link(tag.text, tag.link, "resource-link"))
     .join("");
-  return `<article class="publication-card${thumbnail ? " has-media" : ""}" id="${e(paper.id)}" data-publication-id="${e(paper.id)}">
-    ${media}<div class="publication-content"><div class="publication-meta"><span class="venue-label">${e(paper.venue)}</span>${paper.highlight ? `<span class="highlight-label">${e(paper.highlight)}</span>` : ""}<span class="status-label">${e(labels[paper.type])}</span></div>
+  const venue = `${paper.venue}${["Poster", "Highlight"].includes(paper.highlight) ? ` (${paper.highlight})` : ""}`;
+  return `<article class="publication-card${thumbnail ? " has-media" : ""}" id="${e(paper.id)}">
+    ${media}<div class="publication-content"><p class="publication-venue">${e(venue)}</p>
     <h3>${e(paper.title)}</h3><p class="publication-authors">${authors}</p>
     ${paper.preprintYear && paper.preprintYear !== paper.year ? `<p class="publication-note">Preprint first released in ${e(paper.preprintYear)}.</p>` : ""}
     ${resources ? `<div class="publication-links">${resources}</div>` : ""}</div></article>`;
