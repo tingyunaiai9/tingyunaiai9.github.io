@@ -1,0 +1,138 @@
+[
+  {
+    "id": "li2026flowpde",
+    "title": "FlowPDE: Understanding and Justifying Flow Matching in PDE Solving",
+    "authors": [
+      { "name": "Tianxiao Li", "self": true, "equalContribution": true, "corresponding": false },
+      { "name": "Tianyu Huang", "self": false, "equalContribution": true, "corresponding": false },
+      { "name": "Hang Zhou", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Yuezhou Ma", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Minghao Guo", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Haixu Wu", "self": false, "equalContribution": false, "corresponding": true },
+      { "name": "Chuang Gan", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Mingsheng Long", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Wojciech Matusik", "self": false, "equalContribution": false, "corresponding": false }
+    ],
+    "type": "accepted",
+    "isFirstAuthor": true,
+    "showOnHomepage": true,
+    "featuredOrder": 1,
+    "venue": "ICML 2026 Workshop on AI for Physics",
+    "year": 2026,
+    "highlight": "Co-first author",
+    "thumbnail": null,
+    "demo": null,
+    "tags": []
+  },
+  {
+    "id": "han2026opendelight",
+    "title": "Learning a Delighting Prior for Facial Appearance Capture in the Wild",
+    "authors": [
+      { "name": "Yuxuan Han", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Xin Ming", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Tianxiao Li", "self": true, "equalContribution": false, "corresponding": false },
+      { "name": "Zhuofan Shen", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Qixuan Zhang", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Lan Xu", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Feng Xu", "self": false, "equalContribution": false, "corresponding": true }
+    ],
+    "type": "accepted",
+    "isFirstAuthor": false,
+    "showOnHomepage": true,
+    "featuredOrder": 2,
+    "venue": "SIGGRAPH 2026",
+    "year": 2026,
+    "highlight": "",
+    "thumbnail": null,
+    "demo": null,
+    "tags": [
+      { "text": "Project", "link": "https://github.com/yxuhan/OpenDelight" },
+      { "text": "Code", "link": "https://github.com/yxuhan/OpenDelight" }
+    ]
+  },
+  {
+    "id": "han2026wildcap",
+    "title": "WildCap: Facial Albedo Capture in the Wild via Hybrid Inverse Rendering",
+    "authors": [
+      { "name": "Yuxuan Han", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Xin Ming", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Tianxiao Li", "self": true, "equalContribution": false, "corresponding": false },
+      { "name": "Zhuofan Shen", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Qixuan Zhang", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Lan Xu", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Feng Xu", "self": false, "equalContribution": false, "corresponding": true }
+    ],
+    "type": "accepted",
+    "isFirstAuthor": false,
+    "showOnHomepage": true,
+    "featuredOrder": 3,
+    "venue": "CVPR 2026",
+    "year": 2026,
+    "highlight": "Poster",
+    "thumbnail": null,
+    "demo": null,
+    "tags": [
+      { "text": "Paper", "link": "https://arxiv.org/abs/2512.11237" },
+      { "text": "Project", "link": "https://yxuhan.github.io/WildCap/index.html" },
+      { "text": "Code", "link": "https://github.com/yxuhan/WildCap" }
+    ]
+  },
+  {
+    "id": "zhang2025m3dlayout",
+    "title": "M3DLayout: A Multi-Source Dataset of 3D Indoor Layouts and Structured Descriptions for 3D Generation",
+    "authors": [
+      { "name": "Yiheng Zhang", "self": false, "equalContribution": true, "corresponding": false },
+      { "name": "Zhuojiang Cai", "self": false, "equalContribution": true, "corresponding": false },
+      { "name": "Mingdao Wang", "self": false, "equalContribution": true, "corresponding": false },
+      { "name": "Meitong Guo", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Tianxiao Li", "self": true, "equalContribution": false, "corresponding": false },
+      { "name": "Li Lin", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Yuwang Wang", "self": false, "equalContribution": false, "corresponding": true }
+    ],
+    "type": "accepted",
+    "isFirstAuthor": false,
+    "showOnHomepage": true,
+    "featuredOrder": 4,
+    "venue": "CVPR 2026",
+    "year": 2026,
+    "preprintYear": 2025,
+    "highlight": "Highlight",
+    "thumbnail": null,
+    "demo": null,
+    "tags": [
+      { "text": "Paper", "link": "https://arxiv.org/abs/2509.23728" },
+      { "text": "Project", "link": "https://graphic-kiliani.github.io/M3DLayout/" },
+      { "text": "Code", "link": "https://github.com/Graphic-Kiliani/M3DLayout-code" }
+    ]
+  },
+  {
+    "id": "zhang2026quadlink",
+    "title": "QuadLink: Autoregressive Quad-Dominant Mesh Generation via Point-Relation Learning",
+    "authors": [
+      { "name": "Yiheng Zhang", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Zhe Zhu", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Tingrui Shen", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Zhuojiang Cai", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Tianxiao Li", "self": true, "equalContribution": false, "corresponding": false },
+      { "name": "Zixing Zhao", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Qiujie Dong", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Zhiyang Dou", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Jiepeng Wang", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Le Wan", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Yuwang Wang", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Wenping Wang", "self": false, "equalContribution": false, "corresponding": false },
+      { "name": "Yuan Liu", "self": false, "equalContribution": false, "corresponding": true },
+      { "name": "Cheng Lin", "self": false, "equalContribution": false, "corresponding": true }
+    ],
+    "type": "under-review",
+    "isFirstAuthor": false,
+    "showOnHomepage": false,
+    "featuredOrder": null,
+    "venue": "Under review",
+    "year": 2026,
+    "highlight": "",
+    "thumbnail": null,
+    "demo": null,
+    "tags": []
+  }
+]
