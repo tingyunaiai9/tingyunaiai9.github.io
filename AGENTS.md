@@ -1,81 +1,34 @@
-# Agent Guidelines for al-folio
+# Agent Guidelines for Tianxiao Li's Site
 
-A simple, clean, and responsive Jekyll theme for academics.
+This repository now builds the AcaNova-X static site with Node.js 22. Read this file before editing; [migration notes](docs/acanova-migration.md) explain the source mapping. The old [al-folio Copilot instructions](.github/copilot-instructions.md), [customization guide](CUSTOMIZE.md), and Jekyll-specific instruction files describe retained legacy sources, not the active build.
 
-## Quick Links by Role
+## Active sources
 
-- **Are you a coding agent?** → Read [`.github/copilot-instructions.md`](.github/copilot-instructions.md) first (tech stack, build, CI/CD, common pitfalls & solutions)
-- **Customizing the site?** → See [`.github/agents/customize.agent.md`](.github/agents/customize.agent.md)
-- **Writing documentation?** → See [`.github/agents/docs.agent.md`](.github/agents/docs.agent.md)
-- **Need setup/deployment help?** → [INSTALL.md](INSTALL.md)
-- **Troubleshooting & FAQ?** → [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
-- **Customization & theming?** → [CUSTOMIZE.md](CUSTOMIZE.md)
-- **Quick 5-min start?** → [QUICKSTART.md](QUICKSTART.md)
+- `data/profile.json`: biography, experience, links, projects, and CV URL.
+- `data/publications.json`, `data/news.json`, `data/honors.json`: content.
+- `site/`: HTML templates, components, CSS, and client scripts.
+- `scripts/build.mjs`: generates `_site/`, compiles CSS, copies referenced assets and local fonts, and verifies local links.
+- `scripts/serve.mjs`: previews `_site/` at `127.0.0.1:8080` by default; `HOST` and `PORT` override this.
+- `tests/`: Node and Playwright checks.
 
-## Essential Commands
+The prior `_config.yml`, Liquid templates, BibTeX, Ruby scripts, and `_data/` are retained for reference and are not sources for the new build. Do not update them expecting a site change. Do not alter the existing CV PDF unless the task explicitly requires it.
+The formatting baseline covers active Node sources, active workflows, and migration documentation; retained al-folio files are excluded.
 
-### Local Development (Docker)
+## Commands
 
-The recommended approach is using Docker.
-
-```bash
-# Initial setup & start dev server
-docker compose pull && docker compose up
-# Site runs at http://localhost:8080
-
-# Rebuild after changing dependencies or Dockerfile
-docker compose up --build
-
-# Stop containers and free port 8080
-docker compose down
+```sh
+npm ci
+npm run format:check
+npm test
+npm run build
+npm run test:browser
+npm start
 ```
 
-### Pre-Commit Checklist
+Run formatting, unit tests, the build, and browser verification before committing changes that affect the site. Browser tests require installed Playwright browsers; CI installs Chromium. Use `npm run format` to format active files as configured in `package.json`. `docker compose up --build` provides a Node-based preview at <http://localhost:8080>; Docker requires a working daemon.
 
-Before every commit, you **must** run these steps:
+The build output is `_site/`. Do not edit it directly or commit it. Pull requests run verification but do not publish. Passing changes pushed to `main` or `master` deploy to the existing `gh-pages` branch. The CV rendering workflow is manual-only.
 
-1.  **Format Code:**
-    ```bash
-    # (First time only)
-    npm install --save-dev prettier @shopify/prettier-plugin-liquid
-    # Format all files
-    npx prettier . --write
-    ```
-2.  **Build Locally & Verify:**
+## Content rules
 
-    ```bash
-    # Rebuild the site
-    docker compose up --build
-
-    # Verify by visiting http://localhost:8080.
-    # Check navigation, pages, images, and dark mode.
-    ```
-
-## Critical Configuration
-
-When modifying `_config.yml`, these **must be updated together**:
-
-- **Personal site:** `url: https://username.github.io` + `baseurl:` (empty)
-- **Project site:** `url: https://username.github.io` + `baseurl: /repo-name/`
-- **YAML errors:** Quote strings with special characters: `title: "My: Cool Site"`
-
-## Development Workflow
-
-- **Git & Commits:** For commit message format and Git practices, see [.github/GIT_WORKFLOW.md](.github/GIT_WORKFLOW.md).
-- **Code-Specific Instructions:** Consult the relevant instruction file for your code type.
-
-| File Type                                     | Instruction File                                                                                |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Markdown content (`_posts/`, `_pages/`, etc.) | [markdown-content.instructions.md](.github/instructions/markdown-content.instructions.md)       |
-| YAML config (`_config.yml`, `_data/`)         | [yaml-configuration.instructions.md](.github/instructions/yaml-configuration.instructions.md)   |
-| BibTeX (`_bibliography/`)                     | [bibtex-bibliography.instructions.md](.github/instructions/bibtex-bibliography.instructions.md) |
-| Liquid templates (`_includes/`, `_layouts/`)  | [liquid-templates.instructions.md](.github/instructions/liquid-templates.instructions.md)       |
-| JavaScript (`_scripts/`)                      | [javascript-scripts.instructions.md](.github/instructions/javascript-scripts.instructions.md)   |
-
-## Common Issues
-
-For troubleshooting, see:
-
-- [Common Pitfalls & Workarounds](.github/copilot-instructions.md#common-pitfalls--workarounds) in copilot-instructions.md
-- [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for detailed solutions
-- [GitHub Issues](https://github.com/alshedivat/al-folio/issues) to search for your specific problem.
+Keep publication `type` to `accepted`, `preprint`, or `under-review`. Use `showOnHomepage` and `featuredOrder` for selected publications. Add only real resource links and assets. Preserve `/assets/pdf/Tianxiao_s_CV.pdf` until a CV update is requested. QuadLink remains under review; web experience shows the MIT CSAIL internship as January–June 2026.
