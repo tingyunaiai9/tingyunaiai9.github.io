@@ -53,9 +53,19 @@ try {
     );
     results.push(`Homepage ${width}px: no overflow, ${featuredCount} selections, WCAG AA checks passed`);
   }
-  await page.evaluate(() => window.scrollTo(0, 1200));
+  await page.evaluate(() => window.scrollTo({ top: 400, behavior: "instant" }));
   await page.waitForFunction(() => Math.abs(document.querySelector(".profile-card").getBoundingClientRect().top - 116) < 2);
-  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
+  assert.equal(
+    await page.evaluate(
+      () =>
+        document.querySelector(".profile-card").getBoundingClientRect().bottom <=
+        document.querySelector(".profile-column").getBoundingClientRect().bottom + 2
+    ),
+    true,
+    "Sticky profile stays inside its column at the end of a short page"
+  );
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
   await page.getByRole("button", { name: "Switch to dark theme" }).click();
   assert.equal(await page.locator("html").getAttribute("data-theme"), "dark");
   await page.reload({ waitUntil: "networkidle" });
