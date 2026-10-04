@@ -1,6 +1,22 @@
 {
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@fontsource/crimson-text": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
     "@shopify/prettier-plugin-liquid": "^1.10.0",
-    "prettier": "^3.8.0"
+    "@tailwindcss/cli": "4.3.0",
+    "playwright": "^1.63.0",
+    "prettier": "^3.8.0",
+    "tailwindcss": "4.3.0"
+  },
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs",
+    "dev": "npm run build && npm start",
+    "test": "node --test tests/site.test.mjs",
+    "test:browser": "node tests/browser.mjs",
+    "format": "prettier site scripts tests data docs/acanova-migration.md docs/superpowers/plans README.md AGENTS.md .github/workflows package.json package-lock.json docker-compose.yml --write",
+    "format:check": "prettier site scripts tests data docs/acanova-migration.md docs/superpowers/plans README.md AGENTS.md .github/workflows package.json package-lock.json docker-compose.yml --check"
   }
 }
