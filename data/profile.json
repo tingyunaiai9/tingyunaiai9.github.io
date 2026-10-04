@@ -1,0 +1,136 @@
+{
+  "name": "Tianxiao Li",
+  "role": "Senior Undergraduate Researcher",
+  "institution": "Tsinghua University",
+  "department": "School of Software",
+  "location": "Beijing, China",
+  "email": "tx-li23@mails.tsinghua.edu.cn",
+  "github": "https://github.com/tingyunaiai9",
+  "cv": "/assets/pdf/Tianxiao_s_CV.pdf",
+  "portrait": "/assets/img/prof_pic_web.jpg",
+  "description": "Senior undergraduate student in Software Engineering at Tsinghua University, researching computer graphics and 3D vision.",
+  "interests": ["Computer graphics", "3D vision", "Inverse rendering", "3D representations and generation", "Physically grounded learning"],
+  "biography": [
+    [
+      { "text": "I am a senior undergraduate student in the " },
+      { "text": "School of Software", "href": "https://www.thss.tsinghua.edu.cn/" },
+      { "text": " at Tsinghua University, pursuing a B.E. in Software Engineering." }
+    ],
+    [
+      {
+        "text": "My research focuses on computer graphics and 3D vision, particularly inverse rendering, 3D representations and generation, and physically grounded learning."
+      }
+    ],
+    [
+      { "text": "I am fortunate to be conducting research with " },
+      { "text": "Prof. Feng Xu", "href": "http://xufeng.site/" },
+      { "text": " at Tsinghua University and " },
+      { "text": "Prof. Shuang Zhao", "href": "https://shuangz.com/" },
+      { "text": " at UIUC. Previously, I worked with " },
+      { "text": "Prof. Wojciech Matusik", "href": "https://cdfg.mit.edu/wojciech" },
+      { "text": " at MIT CSAIL, " },
+      { "text": "Prof. Yuan Liu", "href": "https://liuyuan-pal.github.io/" },
+      { "text": " at HKUST, and " },
+      { "text": "Prof. Yuwang Wang", "href": "https://media.au.tsinghua.edu.cn/info/1011/1176.htm" },
+      { "text": " and " },
+      {
+        "text": "Prof. Qionghai Dai",
+        "href": "https://scholar.google.com/citations?user=CHAajY4AAAAJ&hl=en"
+      },
+      { "text": " at Tsinghua University." }
+    ]
+  ],
+  "opportunity": {
+    "title": "Seeking PhD opportunities for Fall 2027",
+    "text": "I am seeking PhD opportunities for Fall 2027, and welcome conversations about research fit and collaboration."
+  },
+  "experience": [
+    {
+      "institution": "Siebel School of Computing and Data Science, University of Illinois Urbana-Champaign",
+      "position": "Research Intern",
+      "location": "Urbana-Champaign, IL, USA",
+      "startDate": "2026-06",
+      "endDate": "Present",
+      "advisors": [{ "name": "Prof. Shuang Zhao", "href": "https://shuangz.com/" }],
+      "topic": "Differentiable rendering"
+    },
+    {
+      "institution": "Computational Design and Fabrication Group, MIT CSAIL",
+      "position": "Remote Research Intern",
+      "location": "Cambridge, MA, USA",
+      "startDate": "2026-01",
+      "endDate": "2026-06",
+      "advisors": [{ "name": "Prof. Wojciech Matusik", "href": "https://cdfg.mit.edu/wojciech" }],
+      "topic": "Neural PDE solvers"
+    },
+    {
+      "institution": "Intelligent Graphics Lab, Hong Kong University of Science and Technology",
+      "position": "Remote Research Intern",
+      "location": "Hong Kong SAR, China",
+      "startDate": "2025-09",
+      "endDate": "2026-01",
+      "advisors": [{ "name": "Prof. Yuan Liu", "href": "https://liuyuan-pal.github.io/" }, { "name": "Prof. Wenping Wang" }],
+      "topic": "3D mesh generation"
+    },
+    {
+      "institution": "Institute of CG and CAD, Tsinghua University",
+      "position": "Research Intern",
+      "location": "Beijing, China",
+      "startDate": "2025-03",
+      "endDate": "Present",
+      "advisors": [{ "name": "Prof. Feng Xu", "href": "http://xufeng.site/" }],
+      "topic": "3D human avatars and facial appearance capture"
+    },
+    {
+      "institution": "Metaverse AI Interdisciplinary Innovation Lab, Tsinghua University",
+      "position": "Research Intern",
+      "location": "Beijing, China",
+      "startDate": "2024-04",
+      "endDate": "2025-11",
+      "advisors": [
+        {
+          "name": "Prof. Yuwang Wang",
+          "href": "https://media.au.tsinghua.edu.cn/info/1011/1176.htm"
+        },
+        {
+          "name": "Prof. Qionghai Dai",
+          "href": "https://scholar.google.com/citations?user=CHAajY4AAAAJ&hl=en"
+        }
+      ],
+      "topic": "Light field display, multimodal interaction, and 3D scene generation"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Tsinghua University",
+      "degree": "B.E. in Software Engineering",
+      "startDate": "2023-09",
+      "endDate": "2027-06",
+      "location": "Beijing, China",
+      "highlights": [
+        "GPA: 4.0/4.0; rank: 1/78.",
+        "Relevant coursework: advanced linear algebra, algorithms, data structures, probability and statistics, artificial intelligence, machine learning, formal languages and automata."
+      ]
+    }
+  ],
+  "service": ["Reviewer, Pacific Graphics 2026.", "Reviewer, ICML 2026 Workshop on AI for Physics.", "Student Volunteer, China3DV 2025."],
+  "leadership": [
+    "President, Student Association for Science and Technology, School of Software, Tsinghua University.",
+    "Deputy Secretary-General, Peer Tutoring Center, School of Software, Tsinghua University.",
+    "Vice President for Technology, Student Association for Science and Technology, Dushi College, Tsinghua University.",
+    "Deputy Director, Competition and Research Department, Tsinghua University Student Algorithm Association."
+  ],
+  "projects": [
+    {
+      "title": "Echo of Time",
+      "description": "A three-player cross-time cooperative puzzle game built with Unity and C# for a software engineering course project. Players coordinate actions across different temporal states to solve spatial and logical puzzles.",
+      "href": "https://github.com/tingyunaiai9/Echo-of-Time",
+      "keywords": ["Unity", "C#", "Cooperative gameplay", "Puzzle design", "Interaction design"],
+      "awards": [
+        "First prize, 2025 Software Innovation and Creativity Competition",
+        "Award in the game track, TCA Unlimited Creation Competition",
+        "Third prize, 9th Tsinghua Software Design Competition"
+      ]
+    }
+  ]
+}
