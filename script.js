@@ -1,4 +1,18 @@
 const themeButton = document.querySelector(".theme-toggle");
+// Keep bookmarks to sections moved off the homepage usable.
+function redirectMovedSection() {
+  if (location.pathname !== "/") return;
+  const destinations = {
+    "#experience": "/background/#experience",
+    "#education": "/background/#education",
+    "#leadership": "/background/#leadership",
+    "#honors": "/honors/",
+    "#projects": "/projects/",
+  };
+  if (destinations[location.hash]) location.replace(destinations[location.hash]);
+}
+redirectMovedSection();
+window.addEventListener("hashchange", redirectMovedSection);
 function updateThemeButton() {
   themeButton.setAttribute("aria-label", `Switch to ${document.documentElement.dataset.theme === "dark" ? "light" : "dark"} theme`);
 }
