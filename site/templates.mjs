@@ -1,18 +1,6 @@
 import { escapeHtml as e, link } from "./html.mjs";
 import { icon } from "./icons.mjs";
-import {
-  about,
-  authorLegend,
-  educationList,
-  experienceList,
-  honorsList,
-  newsList,
-  profileCard,
-  projectsList,
-  publicationCard,
-  section,
-  viewAll,
-} from "./components.mjs";
+import { about, authorLegend, educationList, experienceList, newsList, profileCard, publicationCard, section, viewAll } from "./components.mjs";
 
 export const origin = "https://tingyunaiai9.github.io";
 
@@ -20,8 +8,9 @@ export function page(profile, { title, path, content }) {
   const nav = [
     ["About", "/#about"],
     ["Publications", "/publications/"],
-    ["Experience", "/#experience"],
-    ["Honors", "/#honors"],
+    ["Background", "/background/"],
+    ["Honors", "/honors/"],
+    ["Projects", "/projects/"],
     ["CV", "/cv/"],
   ];
   return `<!doctype html>
@@ -37,33 +26,39 @@ export function page(profile, { title, path, content }) {
 <footer><div class="footer-inner"><p>© ${new Date().getUTCFullYear()} ${e(profile.name)}</p><p>Built with ${link("AcaNova-X", "https://github.com/yihangtao/AcaNova-X")} · Hosted on ${link("GitHub Pages", "https://pages.github.com/")}</p></div></footer></body></html>`;
 }
 
-export function homepage({ profile, publications, news, honors }) {
+export function homepage({ profile, publications, news }) {
   const featured = publications.filter((paper) => paper.showOnHomepage).sort((a, b) => a.featuredOrder - b.featuredOrder);
   const service = `<ul class="service-list">${profile.service.map((entry) => `<li>${e(entry)}</li>`).join("")}</ul>`;
-  const leadership = `<ul class="service-list">${(profile.leadership || []).map((entry) => `<li>${e(entry)}</li>`).join("")}</ul>`;
   return page(profile, {
     title: profile.name,
     path: "/",
     content:
       section("about", "About Me", about(profile)) +
-      section("latest-news", "Latest News", newsList([...news].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5)), viewAll("/news/")) +
+      section("latest-news", "Latest News", newsList([...news].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3)), viewAll("/news/")) +
       section(
         "publications",
         "Selected Publications",
         authorLegend() + `<div class="publications-list">${featured.map(publicationCard).join("")}</div>`,
         viewAll("/publications/", "Full list")
       ) +
-      section("experience", "Research Experience", experienceList(profile.experience)) +
-      section("education", "Education", educationList(profile.education)) +
-      section("honors", "Honors & Funding", honorsList(honors), viewAll("/honors/")) +
       section("service", "Academic Service", service) +
-      (profile.leadership?.length ? section("leadership", "Leadership", leadership) : "") +
-      section("projects", "Other Projects", projectsList(profile.projects), viewAll("/projects/")) +
       section(
         "contact",
         "Contact",
         `<p>I am happy to talk about computer graphics, 3D vision, and research opportunities.</p><p>${link(profile.email, `mailto:${profile.email}`, "text-link")}</p>`
       ),
+  });
+}
+
+export function backgroundPage(profile) {
+  const leadership = `<ul class="service-list">${(profile.leadership || []).map((entry) => `<li>${e(entry)}</li>`).join("")}</ul>`;
+  return listPage(profile, {
+    title: "Background",
+    path: "/background/",
+    content:
+      section("experience", "Research Experience", experienceList(profile.experience)) +
+      section("education", "Education", educationList(profile.education)) +
+      (profile.leadership?.length ? section("leadership", "Leadership", leadership) : ""),
   });
 }
 

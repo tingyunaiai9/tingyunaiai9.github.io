@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 import assert from "node:assert/strict";
-import { cvPage, homepage, listPage, origin, page, publicationsPage } from "../site/templates.mjs";
+import { backgroundPage, cvPage, homepage, listPage, origin, page, publicationsPage } from "../site/templates.mjs";
 import { honorsList, newsList, projectsList } from "../site/components.mjs";
 import { safeHref } from "../site/html.mjs";
 import { checkBuiltSite } from "./check-site.mjs";
@@ -42,6 +42,7 @@ async function write(relative, content) {
 const pages = new Map([
   ["index.html", homepage(data)],
   ["publications/index.html", publicationsPage(profile, publications)],
+  ["background/index.html", backgroundPage(profile)],
   ["news/index.html", listPage(profile, { title: "News", path: "/news/", content: newsList(news) })],
   ["honors/index.html", listPage(profile, { title: "Honors & Funding", path: "/honors/", content: honorsList(honors) })],
   ["projects/index.html", listPage(profile, { title: "Projects", path: "/projects/", content: projectsList(profile.projects) })],
@@ -114,7 +115,7 @@ const css = spawnSync(
 assert.equal(css.status, 0, "CSS compilation failed");
 await write(".nojekyll", "");
 await write("robots.txt", `User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
-const urls = ["/", "/publications/", "/news/", "/honors/", "/projects/"];
+const urls = ["/", "/publications/", "/background/", "/news/", "/honors/", "/projects/"];
 await write(
   "sitemap.xml",
   `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((url) => `<url><loc>${origin}${url}</loc></url>`).join("")}</urlset>`

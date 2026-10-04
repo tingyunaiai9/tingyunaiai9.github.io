@@ -42,7 +42,7 @@ try {
     await page.goto(origin, { waitUntil: "networkidle" });
     assert.equal(await page.locator("#publications .publication-card").count(), featuredCount);
     assert.equal(await page.locator("h1").textContent(), "Tianxiao Li");
-    assert.match(await page.locator("#experience").textContent(), /Jan 2026 – Jun 2026/);
+    assert.equal(await page.locator("#experience, #education, #honors, #leadership, #projects").count(), 0);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `Homepage overflow at ${width}px`);
     await page.screenshot({ path: path.join(root, `test-results/home-${width}.png`), fullPage: true });
     const accessibility = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
@@ -75,8 +75,11 @@ try {
   assert.equal(await page.locator(".mobile-menu-btn").getAttribute("aria-expanded"), "false");
   assert.equal(await page.locator(".mobile-menu-btn").evaluate((button) => button === document.activeElement), true);
   await page.getByRole("button", { name: "Open navigation" }).click();
-  await page.getByRole("navigation").getByRole("link", { name: "Experience" }).click();
+  await page.getByRole("navigation").getByRole("link", { name: "Background" }).click();
+  await page.waitForURL(`${origin}/background/`);
   assert.equal(await page.locator(".mobile-menu-btn").getAttribute("aria-expanded"), "false");
+  assert.match(await page.locator("#experience").textContent(), /Jan 2026 – Jun 2026/);
+  assert.equal(await page.locator("#education, #leadership").count(), 2);
   await page.goto(`${origin}/publications/`, { waitUntil: "networkidle" });
   const visibleCards = page.locator(".publication-card:visible");
   assert.equal(await visibleCards.count(), publications.length);
@@ -93,9 +96,22 @@ try {
   );
   results.push("Static publications, plain venue text, mobile menu/Escape, and publication accessibility passed");
 
-  for (const route of ["/news/", "/honors/", "/projects/", "/pages/all-publications.html", "/pages/all-news.html", "/pages/all-honors.html"]) {
+  for (const route of [
+    "/background/",
+    "/news/",
+    "/honors/",
+    "/projects/",
+    "/pages/all-publications.html",
+    "/pages/all-news.html",
+    "/pages/all-honors.html",
+  ]) {
     assert.equal((await page.goto(origin + route, { waitUntil: "networkidle" })).status(), 200);
   }
+  await page.goto(`${origin}/#experience`);
+  await page.waitForURL(`${origin}/background/#experience`);
+  assert.equal(await page.locator("#experience").isVisible(), true);
+  await page.goto(`${origin}/#honors`);
+  await page.waitForURL(`${origin}/honors/`);
   assert.equal((await context.request.get(`${origin}/cv/`)).status(), 200);
   assert.equal((await context.request.get(`${origin}/assets/pdf/Tianxiao_s_CV.pdf`)).status(), 200);
   assert.equal((await context.request.get(`${origin}/does-not-exist/`)).status(), 404);

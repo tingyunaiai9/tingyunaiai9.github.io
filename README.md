@@ -18,7 +18,9 @@ Edit `data/profile.json` for the biography, experience, links, and projects; `da
 
 Publication statuses are `accepted`, `preprint`, and `under-review`. Set `showOnHomepage` and `featuredOrder` to control the selected publications and their order. Add only working paper, code, project, or other resource links to `tags`; leave `thumbnail` and `demo` as `null` until real assets are available. QuadLink is currently under review. The web experience lists the MIT CSAIL remote internship as January–June 2026. The existing CV PDF remains at [/assets/pdf/Tianxiao_s_CV.pdf](/assets/pdf/Tianxiao_s_CV.pdf); this migration does not revise it.
 
-The generated routes are `/`, `/publications/`, `/news/`, `/honors/`, `/projects/`, and `/cv/`. Legacy page aliases remain at `/pages/all-publications.html`, `/pages/all-news.html`, and `/pages/all-honors.html`. The `/cv/` route redirects to the existing PDF.
+The generated routes are `/`, `/publications/`, `/background/`, `/news/`, `/honors/`, `/projects/`, and `/cv/`. Legacy page aliases remain at `/pages/all-publications.html`, `/pages/all-news.html`, and `/pages/all-honors.html`. The `/cv/` route redirects to the existing PDF.
+
+The homepage contains About, up to three news items, selected publications, academic service, and contact information. Full research experience, education, and leadership appear on `/background/`; honors and projects have their own pages. Publications are a static list with plain venue information and resource links, without search, filters, or badges.
 
 ## Verify and publish
 
@@ -29,7 +31,7 @@ npm run build
 npm run test:browser
 ```
 
-The build checks local links in the rendered pages. Browser tests use Playwright: install Chromium with `npx playwright install chromium` on Linux/macOS or use Edge on Windows. CI installs Chromium and runs formatting, audit, unit, build, and browser checks. A PR does not publish; a verified push to `main` or `master` publishes `_site/` to `gh-pages`. Review and push the migration branch before expecting production to change.
+The build checks local links in the rendered pages. Browser tests use Playwright: install Chromium with `npx playwright install chromium` on Linux/macOS or use Edge on Windows. CI installs Chromium and runs formatting, audit, unit, build, and browser checks. A PR does not publish; a verified push to `main` or `master` publishes `_site/` to `gh-pages`.
 
 The former al-folio/Jekyll sources remain in the repository for reference but are unused by this build and excluded from `_site/`. See [migration notes](docs/acanova-migration.md) for source mapping, deployment, and rollback.
 
