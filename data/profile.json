@@ -1,6 +1,6 @@
 {
   "name": "Tianxiao Li",
-  "role": "Senior Undergraduate Researcher",
+  "role": "Senior Undergraduate",
   "institution": "Tsinghua University",
   "department": "School of Software",
   "location": "Beijing, China",
@@ -9,7 +9,7 @@
   "cv": "/assets/pdf/Tianxiao_s_CV.pdf",
   "portrait": "/assets/img/prof_pic_web.jpg",
   "description": "Senior undergraduate student in Software Engineering at Tsinghua University, researching computer graphics and 3D vision.",
-  "interests": ["Computer graphics", "3D vision", "Inverse rendering", "3D representations and generation", "Physically grounded learning"],
+  "interests": ["World Model", "3D Vision", "Graphics"],
   "biography": [
     [
       { "text": "I am a senior undergraduate student in the " },
