@@ -85,11 +85,17 @@ try {
   assert.equal(await page.locator(".mobile-menu-btn").getAttribute("aria-expanded"), "false");
   assert.equal(await page.locator(".mobile-menu-btn").evaluate((button) => button === document.activeElement), true);
   await page.getByRole("button", { name: "Open navigation" }).click();
-  await page.getByRole("navigation").getByRole("link", { name: "Background" }).click();
+  await page.getByRole("navigation").getByRole("link", { name: "Experience", exact: true }).click();
   await page.waitForURL(`${origin}/background/`);
   assert.equal(await page.locator(".mobile-menu-btn").getAttribute("aria-expanded"), "false");
   assert.match(await page.locator("#experience").textContent(), /Jan 2026 – Jun 2026/);
-  assert.equal(await page.locator("#education, #leadership").count(), 2);
+  assert.equal(await page.locator("#education").count(), 1);
+  assert.equal(await page.locator("#leadership").count(), 0);
+  assert.equal(await page.getByText(/Relevant coursework/).count(), 0);
+  assert.equal(
+    await page.locator('#experience a[href="https://scholar.google.com/citations?user=_MjXpXkAAAAJ&hl=en"]').textContent(),
+    "Prof. Mingsheng Long"
+  );
   await page.goto(`${origin}/publications/`, { waitUntil: "networkidle" });
   const visibleCards = page.locator(".publication-card:visible");
   assert.equal(await visibleCards.count(), publications.length);

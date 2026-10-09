@@ -8,7 +8,7 @@ export function page(profile, { title, path, content }) {
   const nav = [
     ["About", "/#about"],
     ["Publications", "/publications/"],
-    ["Background", "/background/"],
+    ["Experience", "/background/"],
     ["Honors", "/honors/"],
     ["Projects", "/projects/"],
     ["CV", "/cv/"],
@@ -51,14 +51,12 @@ export function homepage({ profile, publications, news }) {
 }
 
 export function backgroundPage(profile) {
-  const leadership = `<ul class="service-list">${(profile.leadership || []).map((entry) => `<li>${e(entry)}</li>`).join("")}</ul>`;
   return listPage(profile, {
-    title: "Background",
+    title: "Experience",
     path: "/background/",
     content:
       section("experience", "Research Experience", experienceList(profile.experience)) +
-      section("education", "Education", educationList(profile.education)) +
-      (profile.leadership?.length ? section("leadership", "Leadership", leadership) : ""),
+      section("education", "Education", educationList(profile.education)),
   });
 }
 

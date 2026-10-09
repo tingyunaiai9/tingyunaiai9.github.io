@@ -20,7 +20,7 @@ Publication statuses are `accepted`, `preprint`, and `under-review`. Set `showOn
 
 The generated routes are `/`, `/publications/`, `/background/`, `/news/`, `/honors/`, `/projects/`, and `/cv/`. Legacy page aliases remain at `/pages/all-publications.html`, `/pages/all-news.html`, and `/pages/all-honors.html`. The `/cv/` route redirects to the existing PDF.
 
-The homepage contains About, up to three news items, selected publications, academic service, and contact information. Full research experience, education, and leadership appear on `/background/`; honors and projects have their own pages. Publications are a static list with plain venue information and resource links, without search, filters, or badges.
+The homepage contains About, up to three news items, selected publications, academic service, and contact information. Full research experience and education appear on the Experience page at `/background/`; honors and projects have their own pages. Publications are a static list with plain venue information and resource links, without search, filters, or badges.
 
 ## Verify and publish
 
