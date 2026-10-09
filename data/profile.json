@@ -69,7 +69,10 @@
       "location": "Hong Kong SAR, China",
       "startDate": "2025-09",
       "endDate": "2026-01",
-      "advisors": [{ "name": "Prof. Yuan Liu", "href": "https://liuyuan-pal.github.io/" }, { "name": "Prof. Wenping Wang" }],
+      "advisors": [
+        { "name": "Prof. Yuan Liu", "href": "https://liuyuan-pal.github.io/" },
+        { "name": "Prof. Wenping Wang", "href": "https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" }
+      ],
       "topic": "3D mesh generation"
     },
     {
