@@ -3,9 +3,9 @@ const themeButton = document.querySelector(".theme-toggle");
 function redirectMovedSection() {
   if (location.pathname !== "/") return;
   const destinations = {
-    "#experience": "/background/#experience",
-    "#education": "/background/#education",
-    "#leadership": "/background/",
+    "#experience": "/experience/#experience",
+    "#education": "/experience/#education",
+    "#leadership": "/experience/",
     "#honors": "/honors/",
     "#projects": "/projects/",
   };

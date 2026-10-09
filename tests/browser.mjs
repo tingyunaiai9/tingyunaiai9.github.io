@@ -86,7 +86,7 @@ try {
   assert.equal(await page.locator(".mobile-menu-btn").evaluate((button) => button === document.activeElement), true);
   await page.getByRole("button", { name: "Open navigation" }).click();
   await page.getByRole("navigation").getByRole("link", { name: "Experience", exact: true }).click();
-  await page.waitForURL(`${origin}/background/`);
+  await page.waitForURL(`${origin}/experience/`);
   assert.equal(await page.locator(".mobile-menu-btn").getAttribute("aria-expanded"), "false");
   assert.match(await page.locator("#experience").textContent(), /Jan 2026 – Jun 2026/);
   assert.equal(await page.locator("#education").count(), 1);
@@ -113,7 +113,7 @@ try {
   results.push("Static publications, plain venue text, mobile menu/Escape, and publication accessibility passed");
 
   for (const route of [
-    "/background/",
+    "/experience/",
     "/news/",
     "/honors/",
     "/projects/",
@@ -124,8 +124,13 @@ try {
     assert.equal((await page.goto(origin + route, { waitUntil: "networkidle" })).status(), 200);
   }
   await page.goto(`${origin}/#experience`);
-  await page.waitForURL(`${origin}/background/#experience`);
+  await page.waitForURL(`${origin}/experience/#experience`);
   assert.equal(await page.locator("#experience").isVisible(), true);
+  await page.goto(`${origin}/background/`);
+  await page.waitForURL(`${origin}/experience/`);
+  await page.goto(`${origin}/background/?source=bookmark#education`);
+  await page.waitForURL(`${origin}/experience/?source=bookmark#education`);
+  assert.equal(await page.locator("#education").isVisible(), true);
   await page.goto(`${origin}/#honors`);
   await page.waitForURL(`${origin}/honors/`);
   assert.equal((await context.request.get(`${origin}/cv/`)).status(), 200);

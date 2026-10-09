@@ -18,9 +18,9 @@ Edit `data/profile.json` for the biography, experience, links, and projects; `da
 
 Publication statuses are `accepted`, `preprint`, and `under-review`. Set `showOnHomepage` and `featuredOrder` to control the selected publications and their order. Add only working paper, code, project, or other resource links to `tags`; leave `thumbnail` and `demo` as `null` until real assets are available. QuadLink is currently under review. The web experience lists the MIT CSAIL remote internship as January–June 2026. The existing CV PDF remains at [/assets/pdf/Tianxiao_s_CV.pdf](/assets/pdf/Tianxiao_s_CV.pdf); this migration does not revise it.
 
-The generated routes are `/`, `/publications/`, `/background/`, `/news/`, `/honors/`, `/projects/`, and `/cv/`. Legacy page aliases remain at `/pages/all-publications.html`, `/pages/all-news.html`, and `/pages/all-honors.html`. The `/cv/` route redirects to the existing PDF.
+The generated routes are `/`, `/publications/`, `/experience/`, `/news/`, `/honors/`, `/projects/`, and `/cv/`. Legacy page aliases remain at `/pages/all-publications.html`, `/pages/all-news.html`, and `/pages/all-honors.html`. The `/cv/` route redirects to the existing PDF. The old `/background/` URL redirects to `/experience/`, preserving query strings and section bookmarks when JavaScript is enabled.
 
-The homepage contains About, up to three news items, selected publications, academic service, and contact information. Full research experience and education appear on the Experience page at `/background/`; honors and projects have their own pages. Publications are a static list with plain venue information and resource links, without search, filters, or badges.
+The homepage contains About, up to three news items, selected publications, academic service, and contact information. Full research experience and education appear on the Experience page at `/experience/`; honors and projects have their own pages. Publications are a static list with plain venue information and resource links, without search, filters, or badges.
 
 ## Verify and publish
 

@@ -8,7 +8,7 @@ export function page(profile, { title, path, content }) {
   const nav = [
     ["About", "/#about"],
     ["Publications", "/publications/"],
-    ["Experience", "/background/"],
+    ["Experience", "/experience/"],
     ["Honors", "/honors/"],
     ["Projects", "/projects/"],
     ["CV", "/cv/"],
@@ -50,10 +50,10 @@ export function homepage({ profile, publications, news }) {
   });
 }
 
-export function backgroundPage(profile) {
+export function experiencePage(profile) {
   return listPage(profile, {
     title: "Experience",
-    path: "/background/",
+    path: "/experience/",
     content:
       section("experience", "Research Experience", experienceList(profile.experience)) +
       section("education", "Education", educationList(profile.education)),

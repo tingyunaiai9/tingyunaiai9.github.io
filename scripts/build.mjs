@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 import assert from "node:assert/strict";
-import { backgroundPage, cvPage, homepage, listPage, origin, page, publicationsPage } from "../site/templates.mjs";
+import { experiencePage, cvPage, homepage, listPage, origin, page, publicationsPage } from "../site/templates.mjs";
 import { honorsList, newsList, projectsList } from "../site/components.mjs";
 import { safeHref } from "../site/html.mjs";
 import { checkBuiltSite } from "./check-site.mjs";
@@ -42,7 +42,11 @@ async function write(relative, content) {
 const pages = new Map([
   ["index.html", homepage(data)],
   ["publications/index.html", publicationsPage(profile, publications)],
-  ["background/index.html", backgroundPage(profile)],
+  ["experience/index.html", experiencePage(profile)],
+  [
+    "background/index.html",
+    `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Experience</title><link rel="canonical" href="${origin}/experience/"><meta name="robots" content="noindex"><script src="/experience-redirect.js"></script><meta http-equiv="refresh" content="0;url=/experience/"></head><body><p>This page has moved to <a href="/experience/">Experience</a>.</p></body></html>`,
+  ],
   ["news/index.html", listPage(profile, { title: "News", path: "/news/", content: newsList(news) })],
   ["honors/index.html", listPage(profile, { title: "Honors & Funding", path: "/honors/", content: honorsList(honors) })],
   ["projects/index.html", listPage(profile, { title: "Projects", path: "/projects/", content: projectsList(profile.projects) })],
@@ -67,7 +71,7 @@ for (const [alias, destination] of [
 
 await mkdir(path.join(output, "data"), { recursive: true });
 await cp(path.join(root, "data"), path.join(output, "data"), { recursive: true });
-for (const file of ["script.js", "theme.js"]) await cp(path.join(root, "site", file), path.join(output, file));
+for (const file of ["script.js", "theme.js", "experience-redirect.js"]) await cp(path.join(root, "site", file), path.join(output, file));
 await write(
   "assets/favicon.svg",
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#1e293b"/><text x="32" y="42" text-anchor="middle" font-family="Georgia,serif" font-size="32" fill="#d4a562">TL</text></svg>'
@@ -115,7 +119,7 @@ const css = spawnSync(
 assert.equal(css.status, 0, "CSS compilation failed");
 await write(".nojekyll", "");
 await write("robots.txt", `User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
-const urls = ["/", "/publications/", "/background/", "/news/", "/honors/", "/projects/"];
+const urls = ["/", "/publications/", "/experience/", "/news/", "/honors/", "/projects/"];
 await write(
   "sitemap.xml",
   `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((url) => `<url><loc>${origin}${url}</loc></url>`).join("")}</urlset>`
