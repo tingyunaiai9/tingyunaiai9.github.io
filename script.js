@@ -5,7 +5,7 @@ function redirectMovedSection() {
   const destinations = {
     "#experience": "/background/#experience",
     "#education": "/background/#education",
-    "#leadership": "/background/#leadership",
+    "#leadership": "/background/",
     "#honors": "/honors/",
     "#projects": "/projects/",
   };

@@ -60,7 +60,10 @@
       "location": "Cambridge, MA, USA",
       "startDate": "2026-01",
       "endDate": "2026-06",
-      "advisors": [{ "name": "Prof. Wojciech Matusik", "href": "https://cdfg.mit.edu/wojciech" }],
+      "advisors": [
+        { "name": "Prof. Wojciech Matusik", "href": "https://cdfg.mit.edu/wojciech" },
+        { "name": "Prof. Mingsheng Long", "href": "https://scholar.google.com/citations?user=_MjXpXkAAAAJ&hl=en" }
+      ],
       "topic": "Neural PDE solvers"
     },
     {
@@ -110,10 +113,7 @@
       "startDate": "2023-09",
       "endDate": "2027-06",
       "location": "Beijing, China",
-      "highlights": [
-        "GPA: 4.0/4.0; rank: 1/78.",
-        "Relevant coursework: advanced linear algebra, algorithms, data structures, probability and statistics, artificial intelligence, machine learning, formal languages and automata."
-      ]
+      "highlights": ["GPA: 4.0/4.0; rank: 1/78."]
     }
   ],
   "service": ["Reviewer, Pacific Graphics 2026.", "Reviewer, ICML 2026 Workshop on AI for Physics.", "Student Volunteer, China3DV 2025."],
