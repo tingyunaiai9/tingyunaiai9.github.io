@@ -1,22 +1,36 @@
 [
   {
     "title": "National Scholarship",
-    "year": "2024, 2025",
+    "year": "2024, 2025, 2026",
     "awarder": "Tsinghua University",
-    "description": "Awarded twice, in 2024 and 2025."
+    "description": "Awarded three times, in 2024, 2025, and 2026."
   },
   {
     "title": "Undergraduate Research Project, Principal Investigator",
     "year": "2026",
     "awarder": "Natural Science Foundation of Beijing"
   },
-  { "title": "SenseTime Scholarship", "year": "2026" },
+  {
+    "title": "SenseTime Scholarship",
+    "year": "2026",
+    "description": "Top 30 undergraduates nationwide."
+  },
   {
     "title": "Tan Haoqiang Computer Education Fund Outstanding Student Award",
     "year": "2026"
   },
   {
     "title": "Spark Scientific and Technological Innovation Fellowship",
+    "year": "2026",
+    "awarder": "Tsinghua University"
+  },
+  {
+    "title": "Merit Student Award",
+    "year": "2026",
+    "awarder": "Tsinghua University"
+  },
+  {
+    "title": "First Prize, Software Design Competition",
     "year": "2026",
     "awarder": "Tsinghua University"
   },
@@ -29,5 +43,9 @@
     "title": "Third Prize, 43rd Challenge Cup Student Academic Science and Technology Competition",
     "year": "2025",
     "awarder": "Tsinghua University"
+  },
+  {
+    "title": "Second Prize, Most Creative Award, and Most Popular Award, 1st Zhili Cup Agent Competition",
+    "year": "2024"
   }
 ]

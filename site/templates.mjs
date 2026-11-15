@@ -55,8 +55,8 @@ export function experiencePage(profile) {
     title: "Experience",
     path: "/experience/",
     content:
-      section("experience", "Research Experience", experienceList(profile.experience)) +
-      section("education", "Education", educationList(profile.education)),
+      section("education", "Education", educationList(profile.education)) +
+      section("experience", "Research Experience", experienceList(profile.experience)),
   });
 }
 
