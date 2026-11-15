@@ -9,7 +9,7 @@
   "cv": "/assets/pdf/Tianxiao_s_CV.pdf",
   "portrait": "/assets/img/prof_pic_web.jpg",
   "description": "Senior undergraduate student in Software Engineering at Tsinghua University, researching computer graphics and 3D vision.",
-  "interests": ["World Model", "3D Vision", "Graphics"],
+  "interests": ["World Model", "3D Vision", "Graphics", "Games"],
   "biography": [
     [
       { "text": "I am a senior undergraduate student in the " },
@@ -52,7 +52,7 @@
       "startDate": "2026-06",
       "endDate": "Present",
       "advisors": [{ "name": "Prof. Shuang Zhao", "href": "https://shuangz.com/" }],
-      "topic": "Differentiable rendering"
+      "topic": "Investigating physics-aware 3D reconstruction from motion-degraded imagery through inverse rendering, with physically based forward models describing image formation and learned priors constraining the recovery of underlying scene geometry."
     },
     {
       "institution": "Computational Design and Fabrication Group, MIT CSAIL",
@@ -64,7 +64,7 @@
         { "name": "Prof. Wojciech Matusik", "href": "https://cdfg.mit.edu/wojciech" },
         { "name": "Prof. Mingsheng Long", "href": "https://scholar.google.com/citations?user=_MjXpXkAAAAJ&hl=en" }
       ],
-      "topic": "Neural PDE solvers"
+      "topic": "Developed FlowPDE for neural PDE solving, connecting conditional flow matching with classical iterative solvers. Studied solution prediction on complex geometries for fully specified PDEs and conditional solution distributions under partial observations."
     },
     {
       "institution": "Intelligent Graphics Lab, Hong Kong University of Science and Technology",
@@ -76,7 +76,7 @@
         { "name": "Prof. Yuan Liu", "href": "https://liuyuan-pal.github.io/" },
         { "name": "Prof. Wenping Wang", "href": "https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" }
       ],
-      "topic": "3D mesh generation"
+      "topic": "Worked on QuadLink, generating editable quad-dominant meshes from point clouds through autoregressive vertex and face-centroid prediction, learned connectivity modeling, and geometric verification for anisotropic meshes with coherent edge flow."
     },
     {
       "institution": "Institute of CG and CAD, Tsinghua University",
@@ -85,7 +85,7 @@
       "startDate": "2025-03",
       "endDate": "Present",
       "advisors": [{ "name": "Prof. Feng Xu", "href": "http://xufeng.site/" }],
-      "topic": "3D human avatars and facial appearance capture"
+      "topic": "Researched facial appearance capture from in-the-wild smartphone videos through WildCap and OpenDelight, combining learned delighting priors with model-based inverse rendering to recover detailed facial reflectance maps for photorealistic relighting."
     },
     {
       "institution": "Metaverse AI Interdisciplinary Innovation Lab, Tsinghua University",
@@ -103,17 +103,17 @@
           "href": "https://scholar.google.com/citations?user=CHAajY4AAAAJ&hl=en"
         }
       ],
-      "topic": "Light field display, multimodal interaction, and 3D scene generation"
+      "topic": "Explored 3D scene generation and light-field rendering for immersive displays. Work included M3DLayout, a multi-source dataset of indoor layouts and structured descriptions for text-conditioned generation, and light-field synthesis using NVIDIA OptiX."
     }
   ],
   "education": [
     {
       "institution": "Tsinghua University",
-      "degree": "B.E. in Software Engineering",
-      "startDate": "2023-09",
+      "degree": "B.E. in Software Engineering; Minor in Psychology",
+      "startDate": "2023-08",
       "endDate": "2027-06",
       "location": "Beijing, China",
-      "highlights": ["GPA: 4.0/4.0; rank: 1/78."]
+      "highlights": ["GPA: 4.0/4.0; rank: 1/80."]
     }
   ],
   "service": ["Reviewer, Pacific Graphics 2026.", "Reviewer, ICML 2026 Workshop on AI for Physics.", "Student Volunteer, China3DV 2025."],
