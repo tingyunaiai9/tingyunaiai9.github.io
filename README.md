@@ -33,8 +33,8 @@ npm run test:browser
 
 The build checks local links in the rendered pages. Browser tests use Playwright: install Chromium with `npx playwright install chromium` on Linux/macOS or use Edge on Windows. CI installs Chromium and runs formatting, audit, unit, build, and browser checks. A PR does not publish; a verified push to `main` or `master` publishes `_site/` to `gh-pages`.
 
-The former al-folio/Jekyll sources remain in the repository for reference but are unused by this build and excluded from `_site/`. See [migration notes](docs/acanova-migration.md) for source mapping, deployment, and rollback.
+The former al-folio/Jekyll sources, template demos, and RenderCV pipeline have been removed. Historical versions remain available in Git. See [migration notes](docs/acanova-migration.md) for source mapping, deployment, and rollback.
 
-Formatting checks cover the active Node sources, active workflows, and migration documentation. The retained al-folio files are excluded from that check.
+Formatting checks cover the active Node sources, maintenance documentation, repository guidance, workflows, and configuration. Assets contain the current portrait and unchanged CV PDF; local fonts and their licenses come from the installed Fontsource packages. The build generates the favicon, robots file, and sitemap.
 
 After editing content, run `npm run build` again and reload the preview. The preview server does not rebuild automatically.

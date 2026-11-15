@@ -25,11 +25,11 @@ All commit messages should follow this format:
 
 ```
 feat: Add dark mode toggle button to header
-fix: Correct baseurl in project site configuration
-docs: Update INSTALL.md with Docker troubleshooting
-style: Format all Liquid templates with Prettier
-config: Enable blog section in _config.yml
-chore: Update Jekyll dependencies with bundle update --all
+fix: Preserve section bookmarks in the Experience redirect
+docs: Update README.md with Docker troubleshooting
+style: Format Node sources with Prettier
+config: Update the Node deployment workflow
+chore: Remove unused npm dependencies
 ```
 
 ## Staging Changes
@@ -40,8 +40,10 @@ chore: Update Jekyll dependencies with bundle update --all
 
 **Always obey the project's [`.gitignore`](../.gitignore) file.** It prevents the accidental commit of:
 
-- Build outputs (`_site/`, `.jekyll-cache/`)
-- Dependencies (`node_modules/`, `vendor/`)
+- Build outputs (`_site/`, `test-results/`, `playwright-report/`)
+- Dependencies and caches (`node_modules/`, `.npm-cache/`)
 - OS-specific files (`.DS_store`)
 - Editor temporary files (`.idea/`, `.swp`, `.swo`)
 - Secrets and API keys (never commit credentials)
+
+Before committing site changes, run the checks listed in [AGENTS.md](../AGENTS.md). Review the diff for unrelated user changes before staging.

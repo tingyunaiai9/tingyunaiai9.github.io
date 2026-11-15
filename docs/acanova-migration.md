@@ -1,20 +1,25 @@
 # AcaNova-X migration notes
 
-The production source is now `data/`, `site/`, and `scripts/`. Node.js 22 runs `scripts/build.mjs`, which writes pre-rendered HTML to `_site/`, compiles Tailwind CSS 4.3.0, copies local Fontsource fonts and referenced assets, and checks local links. `_site/` is generated and should not be committed. The old al-folio/Jekyll directories, `Gemfile`, `_config.yml`, and Liquid templates remain for historical reference but do not affect the new pages. Only needed assets enter `_site/`.
-The active formatting baseline covers Node sources, workflows, and migration documentation; retained al-folio files are excluded.
+The production sources are `data/`, `site/`, and `scripts/`. Node.js 22 runs `scripts/build.mjs`, which writes pre-rendered HTML to `_site/`, compiles Tailwind CSS 4.3.0, copies referenced assets and local Fontsource fonts with their licenses, and checks local links. `_site/` is generated and should not be committed.
+
+The retired al-folio/Jekyll collections, Liquid templates, Sass, Ruby configuration, old scripts, example resources, archived workflows, and Jekyll devcontainer were removed after checking the active dependency graph. The independent RenderCV workflow, its source data and settings, and Python requirements were also removed. The served CV PDF remains unchanged. Git history retains the previous sources.
 
 ## Content mapping
 
-| Current source                                       | Controls                                                        |
-| ---------------------------------------------------- | --------------------------------------------------------------- |
-| `data/profile.json`                                  | Biography, experience, projects, social links, portrait, CV URL |
-| `data/publications.json`                             | Papers, statuses, selected order, links                         |
-| `data/news.json`                                     | News                                                            |
-| `data/honors.json`                                   | Honors and funding                                              |
-| `site/templates.mjs`, `site/components.mjs`          | HTML pages and repeated sections                                |
-| `site/styles.css`, `site/script.js`, `site/theme.js` | Styles and browser behavior                                     |
+| Current source                                                | Controls                                                        |
+| ------------------------------------------------------------- | --------------------------------------------------------------- |
+| `data/profile.json`                                           | Biography, experience, projects, social links, portrait, CV URL |
+| `data/publications.json`                                      | Papers, statuses, selected order, links                         |
+| `data/news.json`                                              | News                                                            |
+| `data/honors.json`                                            | Honors and funding                                              |
+| `site/templates.mjs`, `site/components.mjs`                   | HTML pages and repeated sections                                |
+| `site/styles.css`, `site/script.js`, `site/theme.js`          | Styles and browser behavior                                     |
+| `site/experience-redirect.js`                                 | Compatibility redirect for `/background/`                       |
+| `assets/img/prof_pic_web.jpg`, `assets/pdf/Tianxiao_s_CV.pdf` | Current portrait and existing CV                                |
 
-Only `accepted`, `preprint`, and `under-review` are valid publication types. QuadLink stays `under-review` until its status is confirmed. The homepage selected list follows `showOnHomepage` and `featuredOrder`. Leave `thumbnail` and `demo` null where no approved image or demo exists; put only valid resource URLs in `tags`. The MIT CSAIL remote internship appears on the web as January–June 2026. The CV remains the existing PDF at `/assets/pdf/Tianxiao_s_CV.pdf`; it was intentionally not regenerated or edited.
+Only `accepted`, `preprint`, and `under-review` are valid publication types. QuadLink stays `under-review` until its status is confirmed. The homepage selected list follows `showOnHomepage` and `featuredOrder`. Leave `thumbnail` and `demo` null where no approved image or demo exists; put only valid resource URLs in `tags`. The MIT CSAIL remote internship appears on the web as January–June 2026. The CV remains the existing PDF at `/assets/pdf/Tianxiao_s_CV.pdf`; update it only when explicitly requested.
+
+The build derives copied public assets from the profile and publications. Fonts come from `node_modules/@fontsource/inter` and `node_modules/@fontsource/crimson-text`, rather than a source font directory. The favicon, robots file, sitemap, and `.nojekyll` marker are generated by `scripts/build.mjs`.
 
 ## Local checks
 
@@ -27,22 +32,16 @@ npm run test:browser
 npm start
 ```
 
-`npm start` serves `_site/` on `127.0.0.1:8080`; `HOST` and `PORT` may override those defaults. The browser test starts its own preview on port 8081. On a machine with Docker, `docker compose up --build` serves the same site on port 8080. Browser dependencies must be installed with `npx playwright install chromium` on Linux/macOS; CI uses `npx playwright install --with-deps chromium`. On Windows, the browser test uses Edge.
+`npm start` serves `_site/` on `127.0.0.1:8080`; `HOST` and `PORT` may override those defaults. Rebuild after editing; the preview server does not rebuild automatically. The browser test starts its own preview on port 8081. With a running Docker daemon, `docker compose up --build` serves the same site on port 8080. Install browser dependencies with `npx playwright install chromium` on Linux/macOS; CI uses `npx playwright install --with-deps chromium`. On Windows, the browser test uses Edge.
+
+Formatting covers active code, data, maintenance documentation, repository agent guidance, workflows, and configuration. The Liquid formatter plugin is no longer needed. Local caches, installed dependencies, generated output, personal settings, and agent skill directories stay outside formatting and the Docker build context.
 
 ## Routes and publication
 
 The main routes are `/`, `/publications/`, `/experience/`, `/news/`, `/honors/`, `/projects/`, and `/cv/`. Existing links to `/pages/all-publications.html`, `/pages/all-news.html`, and `/pages/all-honors.html` continue to resolve. The CV route points to the unchanged PDF. The old `/background/` URL redirects to `/experience/`, preserving query strings and section bookmarks when JavaScript is enabled.
 
-The `deploy.yml` workflow verifies formatting, dependency audit, unit tests, build, and browser behavior on relevant pull requests and pushes. The build includes a check of local static links. Only successful runs on `main` or `master` publish the verified `_site/` artifact to the existing `gh-pages` branch with `JamesIves/github-pages-deploy-action@v4`. This keeps the existing GitHub Pages branch setting. The publish job alone has `contents: write`. Old al-folio automation is retained under `.github/legacy-workflows/`, where GitHub Actions does not execute it. `render-cv.yml` can only run manually.
+The homepage shows About, up to three news items, selected publications, academic service, and contact information. Research experience and education are on the Experience page at `/experience/`; honors and projects remain on their existing pages. Existing homepage section fragments redirect to the corresponding pages when JavaScript is enabled. Publications display a full static list with venue information, Poster/Highlight distinctions, author contribution marks, and real resource links.
 
-The migration branch is for review. After checks and approval, push/merge it to the chosen default branch to publish. To roll back, revert the migration on that branch and let the existing deployment workflow rebuild, or restore the previous known-good `gh-pages` branch commit while the source revert is prepared. Keep the old sources until the replacement is accepted.
+The `deploy.yml` workflow verifies formatting, dependency audit, unit tests, build, and browser behavior on relevant pull requests and pushes. The build checks local static links. Only successful runs on `main` or `master` publish the verified `_site/` artifact to the existing `gh-pages` branch with `JamesIves/github-pages-deploy-action@v4`. The publish job alone has `contents: write`. Separate workflows retain formatting checks, CodeQL analysis, and Node-based Copilot setup.
 
-## Homepage organization
-
-The homepage shows About, up to three news items, selected publications, academic service, and contact information. Research experience and education are on the Experience page at `/experience/`; honors and projects remain on their existing pages. Navigation links expose these pages. Existing homepage section fragments redirect to the corresponding pages when JavaScript is enabled.
-
-Publications display a full static list. Search, filters, and badges are removed. Venue, Poster/Highlight distinctions, author contribution marks, and real resource links remain as text. QuadLink retains Under review as its venue text.
-
-## Verification record
-
-Verified locally: 4 Node tests; local link checks across 12 generated HTML pages; Edge browser checks at 320, 768, 1024, and 1440px; light/dark WCAG AA checks; static publication lists without controls or badges; mobile navigation and Escape; static content without JavaScript; optional media fallbacks; compact homepage, Experience navigation, and legacy homepage fragment redirects. CV source data, CV route source, and PDF match the previous Git revision byte-for-byte. Active workflow YAML and Docker Compose configuration parse successfully. Dependency audit reports no known vulnerabilities. The container build/runtime is unverified because the Docker Desktop engine was unavailable; local preview uses Node, as requested. The migration branch is `codex/acanova-migration`; production changes only after verified commits reach `main` or `master`.
+To restore historical sources, retrieve them from Git history into a separate checkout and verify the complete matching build configuration before publishing. Routine content updates use the active Node sources above.

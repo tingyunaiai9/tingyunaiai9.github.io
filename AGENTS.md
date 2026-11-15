@@ -1,6 +1,6 @@
 # Agent Guidelines for Tianxiao Li's Site
 
-This repository now builds the AcaNova-X static site with Node.js 22. Read this file before editing; [migration notes](docs/acanova-migration.md) explain the source mapping. The old [al-folio Copilot instructions](.github/copilot-instructions.md), [customization guide](CUSTOMIZE.md), and Jekyll-specific instruction files describe retained legacy sources, not the active build.
+This repository builds the AcaNova-X static site with Node.js 22. Read this file before editing; [migration notes](docs/acanova-migration.md) explain the source mapping, routes, and deployment.
 
 ## Active sources
 
@@ -11,8 +11,8 @@ This repository now builds the AcaNova-X static site with Node.js 22. Read this 
 - `scripts/serve.mjs`: previews `_site/` at `127.0.0.1:8080` by default; `HOST` and `PORT` override this.
 - `tests/`: Node and Playwright checks.
 
-The prior `_config.yml`, Liquid templates, BibTeX, Ruby scripts, and `_data/` are retained for reference and are not sources for the new build. Do not update them expecting a site change. Do not alter the existing CV PDF unless the task explicitly requires it.
-The formatting baseline covers active Node sources, active workflows, and migration documentation; retained al-folio files are excluded.
+The retired al-folio/Jekyll sources, example assets, and RenderCV tooling have been removed. Historical sources remain available in Git. Edit the active sources listed above. Do not alter the existing CV PDF unless the task explicitly requires it.
+Formatting covers the active sources, repository guidance, workflows, and maintenance configuration.
 
 ## Commands
 
@@ -27,7 +27,13 @@ npm start
 
 Run formatting, unit tests, the build, and browser verification before committing changes that affect the site. Browser tests require installed Playwright browsers; CI installs Chromium. Use `npm run format` to format active files as configured in `package.json`. `docker compose up --build` provides a Node-based preview at <http://localhost:8080>; Docker requires a working daemon.
 
-The build output is `_site/`. Do not edit it directly or commit it. Pull requests run verification but do not publish. Passing changes pushed to `main` or `master` deploy to the existing `gh-pages` branch. The CV rendering workflow is manual-only.
+The build output is `_site/`. Do not edit it directly or commit it. Pull requests run verification but do not publish. Passing changes pushed to `main` or `master` deploy to the existing `gh-pages` branch.
+
+## Resources and compatibility
+
+`assets/` contains the referenced portrait and CV. The build copies Inter and Crimson Text fonts and their licenses from the installed Fontsource packages and generates the favicon, robots file, and sitemap. Preserve the existing page aliases, `/background/` redirect, and legacy homepage fragment redirects when changing routes.
+
+Preserve local personal configuration, agent skill directories, and existing user changes during maintenance. Keep `LICENSE` and the licenses shipped with generated fonts.
 
 ## Content rules
 
